@@ -8,9 +8,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterformController">
+<AnchorPane prefHeight="474.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterformController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a3c6b" height="400.0" stroke="BLACK" strokeType="INSIDE" width="111.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a3c6b" height="504.0" stroke="BLACK" strokeType="INSIDE" width="111.0" />
       <Label layoutX="264.0" layoutY="43.0" text="Register Form">
          <font>
             <Font name="System Bold" size="28.0" />
@@ -18,7 +18,7 @@
       </Label>
       <JFXTextField fx:id="txtUserName" layoutX="332.0" layoutY="120.0" />
       <JFXTextField fx:id="txtEmail" layoutX="332.0" layoutY="164.0" />
-      <Button layoutX="449.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" styleClass="btn2" stylesheets="@../css/Style.css" text="Register" />
+      <Button layoutX="457.0" layoutY="379.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" styleClass="btn2" stylesheets="@../css/Style.css" text="Register" />
       <JFXPasswordField fx:id="txtPassword" layoutX="331.0" layoutY="209.0" />
       <JFXPasswordField fx:id="txtCpassword" layoutX="331.0" layoutY="260.0" />
       <Label layoutX="253.0" layoutY="226.0" text="Password" />

@@ -26,13 +26,30 @@ public class dashboardController {
     }
 
     @FXML
-    void btnItemFormOnAction(ActionEvent event) {
+    void btnItemFormOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/item_form.fxml");
+        assert resource!=null;
+        Parent load = FXMLLoader.load(resource);
+        loadPages.getChildren().clear();
+        loadPages.getChildren().add(load);
 
     }
 
     @FXML
-    void btnOrderFormOnAction(ActionEvent event) {
+    void btnOrderFormOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/order_form.fxml");
+        assert resource!=null;
+        Parent load = FXMLLoader.load(resource);
+        loadPages.getChildren().clear();
+        loadPages.getChildren().add(load);
 
     }
 
+    public void btnRegistrationOnAction(ActionEvent actionEvent) throws IOException {
+        URL resource = this.getClass().getResource("/view/register_form.fxml");
+        assert resource!=null;
+        Parent load = FXMLLoader.load(resource);
+        loadPages.getChildren().clear();
+        loadPages.getChildren().add(load);
+    }
 }

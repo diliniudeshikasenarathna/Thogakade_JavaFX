@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="483.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashboardController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3961" height="472.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3961" height="474.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
       <JFXButton layoutX="14.0" layoutY="149.0" onAction="#btnCustomerFormOnAction" prefHeight="40.0" prefWidth="133.0" styleClass="btn" stylesheets="@../css/Style.css" text="Customer Form" textFill="#fcf6f6">
          <font>
             <Font name="System Bold Italic" size="13.0" />
@@ -24,6 +24,11 @@
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </JFXButton>
-      <AnchorPane fx:id="loadPages" layoutX="181.0" layoutY="11.0" prefHeight="472.0" prefWidth="646.0" />
+      <AnchorPane fx:id="loadPages" layoutX="181.0" layoutY="11.0" prefHeight="474.0" prefWidth="646.0" />
+      <JFXButton layoutX="14.0" layoutY="344.0" onAction="#btnRegistrationOnAction" prefHeight="40.0" prefWidth="133.0" styleClass="btn" stylesheets="@../css/Style.css" text="Registration" textFill="#fcf6f6">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
