@@ -8,13 +8,17 @@ import db.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
+import model.CartTM;
 import model.Customer;
 import model.Item;
 
@@ -85,8 +89,12 @@ public class orderController implements Initializable {
     @FXML
     private JFXTextField txtUnitPrice;
 
+    ObservableList<CartTM> cartList= FXCollections.observableArrayList();
     @FXML
     void btnAddToCarOnAction(ActionEvent event) {
+
+        loadTable();
+        getNetTotal();
 
     }
 
@@ -112,6 +120,13 @@ public class orderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colQTYOnHand.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+        colUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+
         setDateAndTime();
         loadCustomerId();
         loadItemCode();
@@ -134,7 +149,7 @@ public class orderController implements Initializable {
       Item item= new ItemController().searchItem(itemCode);
 
         txtDescription.setText(item.getDescription());
-        txtStock.setText(item.getPackSize());
+        txtStock.setText(String.valueOf(item.getQtyOnHand()));
         txtUnitPrice.setText(item.getUnitPrice().toString());
     }
 
@@ -153,4 +168,26 @@ public class orderController implements Initializable {
     public void loadItemCode(){
         cmbItemCode.setItems(new ItemController().getItemIds());
     }
+
+    public void loadTable(){
+
+
+        String code = cmbItemCode.getValue().toString();
+        String description=txtDescription.getText();
+        Integer qty= Integer.parseInt(txtQty.getText());
+        Double unitPrice = Double.parseDouble(txtUnitPrice.getText());
+        Double total=0.0;
+
+       cartList.add( new CartTM(code,description,qty,unitPrice,qty*unitPrice));
+        tblOrders.setItems(cartList);
+
+    }
+    public void getNetTotal(){
+        Double netTotal=0.0;
+        for(CartTM tm: cartList){
+            netTotal+=tm.getTotal();
+        }
+        lblNetTotal.setText(String.valueOf(netTotal));
+    }
+
 }

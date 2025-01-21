@@ -71,7 +71,7 @@
       </Label>
       <Label fx:id="lblDate" layoutX="63.0" layoutY="20.0" text="dd-MM-yy" textFill="#f4eeee" />
       <Label fx:id="lblTime" layoutX="63.0" layoutY="45.0" text="00:00:00" textFill="#f4eeee" />
-      <Label fx:id="lblNetTotal" layoutX="125.0" layoutY="438.0" prefHeight="19.0" prefWidth="34.0" text="0.00" textFill="#e71010">
+      <Label fx:id="lblNetTotal" layoutX="125.0" layoutY="438.0" prefHeight="20.0" prefWidth="122.0" text="0.00" textFill="#e71010">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
