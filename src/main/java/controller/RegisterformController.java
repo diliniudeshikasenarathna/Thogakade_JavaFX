@@ -42,14 +42,14 @@ public class RegisterformController {
                 String key= "5129#hCi";
                 BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
                 basicTextEncryptor.setPassword(key);
-                String encryptPassword = basicTextEncryptor.encrypt(password);
 
 
-                User user= new User(txtUserName.getText(),txtEmail.getText(),encryptPassword);
+
+                User user= new User(txtUserName.getText(),txtEmail.getText(),txtPassword.getText());
                 PreparedStatement psTm = connection.prepareStatement(SQL);
                 psTm.setString(1,user.getName());
                 psTm.setString(2,user.getEmail());
-                psTm.setString(3,user.getPassword());
+                psTm.setString(3,basicTextEncryptor.encrypt(user.getPassword()));
                 psTm.executeUpdate();
                 new Alert(Alert.AlertType.INFORMATION,"Registration Succesfully!!!").show();
                 txtUserName.setText("");
