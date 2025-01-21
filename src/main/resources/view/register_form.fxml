@@ -18,7 +18,7 @@
       </Label>
       <JFXTextField fx:id="txtUserName" layoutX="332.0" layoutY="120.0" />
       <JFXTextField fx:id="txtEmail" layoutX="332.0" layoutY="164.0" />
-      <Button layoutX="457.0" layoutY="379.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" styleClass="btn2" stylesheets="@../css/Style.css" text="Register" />
+      <Button layoutX="427.0" layoutY="379.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="26.0" prefWidth="92.0" styleClass="btn2" stylesheets="@../css/Style.css" text="Register" />
       <JFXPasswordField fx:id="txtPassword" layoutX="331.0" layoutY="209.0" />
       <JFXPasswordField fx:id="txtCpassword" layoutX="331.0" layoutY="260.0" />
       <Label layoutX="253.0" layoutY="226.0" text="Password" />

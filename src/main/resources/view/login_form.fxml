@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="474.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.loginController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e3961" height="474.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
@@ -32,7 +31,7 @@
       </Label>
       <JFXTextField fx:id="txtEmail" layoutX="360.0" layoutY="196.0" prefHeight="26.0" prefWidth="191.0" promptText="Email" />
       <JFXPasswordField fx:id="txtPassword" layoutX="360.0" layoutY="251.0" prefHeight="26.0" prefWidth="191.0" promptText="Password" />
-      <JFXButton layoutX="396.0" layoutY="356.0" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: green;" styleClass="btn2" stylesheets="@../css/Style.css" text="Login" />
+      <JFXButton layoutX="396.0" layoutY="356.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="113.0" style="-fx-background-color: green;" styleClass="btn2" stylesheets="@../css/Style.css" text="Login" />
       <Hyperlink layoutX="354.0" layoutY="317.0" onAction="#hyperlinkRegisterOnAction" text="Are you new user? Register Now." />
       <Label fx:id="lblThogakadeEmail" layoutX="69.0" layoutY="356.0" text="thogakade@gmail.com" textFill="#fcf3f3">
          <font>

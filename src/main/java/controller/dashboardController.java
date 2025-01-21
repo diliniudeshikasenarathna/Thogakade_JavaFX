@@ -52,4 +52,5 @@ public class dashboardController {
         loadPages.getChildren().clear();
         loadPages.getChildren().add(load);
     }
+
 }
