@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import model.User;
+import org.jasypt.util.text.BasicTextEncryptor;
 
 import java.sql.*;
 
@@ -36,7 +37,15 @@ public class RegisterformController {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * from users WHERE email="+"'"+txtEmail.getText()+"'");
             if(!resultSet.next()){
-                User user= new User(txtUserName.getText(),txtEmail.getText(),txtPassword.getText());
+
+                String password=txtPassword.getText();
+                String key= "5129#hCi";
+                BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
+                basicTextEncryptor.setPassword(key);
+                String encryptPassword = basicTextEncryptor.encrypt(password);
+
+
+                User user= new User(txtUserName.getText(),txtEmail.getText(),encryptPassword);
                 PreparedStatement psTm = connection.prepareStatement(SQL);
                 psTm.setString(1,user.getName());
                 psTm.setString(2,user.getEmail());

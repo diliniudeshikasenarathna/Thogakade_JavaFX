@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.User;
+import org.jasypt.util.text.BasicTextEncryptor;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -43,8 +44,12 @@ public class loginController {
                     resultSet.getString(4));
 
 
+            String key= "5129#hCi";
+            BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
+            basicTextEncryptor.setPassword(key);
+            String decryptPassword = basicTextEncryptor.decrypt(user.getPassword());
 
-            if(user.getPassword().equals(txtPassword.getText())){
+            if(decryptPassword.equals(txtPassword.getText())){
 
                 Stage stage = new Stage();
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"))));
