@@ -2,6 +2,9 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import controller.customer.CustomerController;
+import controller.item.ItemController;
+import db.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -12,8 +15,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Duration;
+import model.Customer;
+import model.Item;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
@@ -104,6 +113,44 @@ public class orderController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setDateAndTime();
+        loadCustomerId();
+        loadItemCode();
 
+        cmbCustomerID.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
+            if(newValue!=null){
+                searchCustomerDetails(newValue.toString());
+            }
+        });
+
+        cmbItemCode.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) ->{
+            if(newValue!=null){
+                searchItemDetails(newValue.toString());
+            }
+        } );
+
+    }
+
+    private void searchItemDetails(String itemCode) {
+      Item item= new ItemController().searchItem(itemCode);
+
+        txtDescription.setText(item.getDescription());
+        txtStock.setText(item.getPackSize());
+        txtUnitPrice.setText(item.getUnitPrice().toString());
+    }
+
+    private void searchCustomerDetails(String customerId) {
+       Customer customer= new CustomerController().searchCustomer(customerId);
+
+        txtCustomerName.setText(customer.getName());
+        txtAddress.setText(customer.getAddress());
+    }
+
+    public void loadCustomerId(){
+
+        cmbCustomerID.setItems(new CustomerController().getCustomerId());
+    }
+
+    public void loadItemCode(){
+        cmbItemCode.setItems(new ItemController().getItemIds());
     }
 }
