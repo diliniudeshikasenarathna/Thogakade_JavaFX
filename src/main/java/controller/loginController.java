@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class loginController {
 
@@ -49,10 +50,12 @@ public class loginController {
             basicTextEncryptor.setPassword(key);
             String decryptPassword = basicTextEncryptor.decrypt(user.getPassword());
 
+
+
             if(decryptPassword.equals(txtPassword.getText())){
 
                 Stage stage = new Stage();
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"))));
+                stage.setScene(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/dashboard_form.fxml")))));
                 stage.show();
             }else {
                 new Alert(Alert.AlertType.ERROR,"Enter Correct Password").show();

@@ -38,7 +38,7 @@ public class RegisterformController {
             ResultSet resultSet = statement.executeQuery("SELECT * from users WHERE email="+"'"+txtEmail.getText()+"'");
             if(!resultSet.next()){
 
-                String password=txtPassword.getText();
+
                 String key= "5129#hCi";
                 BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
                 basicTextEncryptor.setPassword(key);
@@ -53,17 +53,14 @@ public class RegisterformController {
                 psTm.executeUpdate();
                 new Alert(Alert.AlertType.INFORMATION,"Registration Succesfully!!!").show();
                 txtUserName.setText("");
-                txtEmail.setText("");
-                txtPassword.setText("");
-                txtCpassword.setText("");
 
 
             }else{
                 new Alert(Alert.AlertType.ERROR,"Email already have account!!!!").show();
-                txtEmail.setText("");
-                txtPassword.setText("");
-                txtCpassword.setText("");
             }
+            txtEmail.setText("");
+            txtPassword.setText("");
+            txtCpassword.setText("");
         }else{
 
             new Alert(Alert.AlertType.ERROR,"Re enter password!!!").show();

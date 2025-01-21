@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -8,26 +11,46 @@
 <AnchorPane prefHeight="483.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashboardController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0f3961" height="474.0" layoutY="11.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
-      <JFXButton layoutX="14.0" layoutY="149.0" onAction="#btnCustomerFormOnAction" prefHeight="40.0" prefWidth="133.0" styleClass="btn" stylesheets="@../css/Style.css" text="Customer Form" textFill="#fcf6f6">
+      <JFXButton layoutX="17.0" layoutY="175.0" onAction="#btnCustomerFormOnAction" prefHeight="35.0" prefWidth="126.0" styleClass="btn" stylesheets="@../css/Style.css" text="Customer Form" textFill="#fcf6f6">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="14.0" layoutY="211.0" onAction="#btnItemFormOnAction" prefHeight="40.0" prefWidth="133.0" styleClass="btn" stylesheets="@../css/Style.css" text="Item Form" textFill="#fcf6f6">
+      <JFXButton layoutX="17.0" layoutY="225.0" onAction="#btnItemFormOnAction" prefHeight="35.0" prefWidth="126.0" styleClass="btn" stylesheets="@../css/Style.css" text="Item Form" textFill="#fcf6f6">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="14.0" layoutY="278.0" onAction="#btnOrderFormOnAction" prefHeight="40.0" prefWidth="133.0" styleClass="btn" stylesheets="@../css/Style.css" text="Order Form" textFill="#fcf6f6">
+      <JFXButton layoutX="18.0" layoutY="277.0" onAction="#btnOrderFormOnAction" prefHeight="35.0" prefWidth="126.0" styleClass="btn" stylesheets="@../css/Style.css" text="Order Form" textFill="#fcf6f6">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </JFXButton>
       <AnchorPane fx:id="loadPages" layoutX="181.0" layoutY="11.0" prefHeight="474.0" prefWidth="646.0" />
-      <JFXButton layoutX="14.0" layoutY="344.0" onAction="#btnRegistrationOnAction" prefHeight="40.0" prefWidth="133.0" styleClass="btn" stylesheets="@../css/Style.css" text="Registration" textFill="#fcf6f6">
+      <JFXButton layoutX="18.0" layoutY="327.0" onAction="#btnRegistrationOnAction" prefHeight="35.0" prefWidth="126.0" styleClass="btn" stylesheets="@../css/Style.css" text="Registration" textFill="#fcf6f6">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="84.0" fitWidth="126.0" layoutX="39.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="22.0" layoutY="35.0" text="Thogakade" textFill="#f2eded">
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="396.0" text="thogakade@gmail.com" textFill="#faf1f1">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="414.0" text="+94915765321" textFill="#faf1f1">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
