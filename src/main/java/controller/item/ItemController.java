@@ -4,11 +4,9 @@ import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import model.Item;
+import model.OrderDetails;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,4 +83,30 @@ public class ItemController implements ItemService{
         return itemCodeList;
     }
 
+    public boolean updateStock(List<OrderDetails> orderDetails) {
+
+        for(OrderDetails orderDetail:orderDetails){
+          boolean isUpdateStock=  updateStock(orderDetail);
+
+          if(!isUpdateStock){
+              return false;
+          }
+        }
+        return true;
+    }
+
+    public boolean updateStock(OrderDetails orderDetails) {
+        String SQL="UPDATE item set qtyOnHand=qtyOnHand-? where itemCode=?";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            psTm.setObject(1,orderDetails.getQty());
+            psTm.setObject(2,orderDetails.getItemCode());
+            return psTm.executeUpdate() > 0;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

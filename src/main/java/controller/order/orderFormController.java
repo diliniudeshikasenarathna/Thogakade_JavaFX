@@ -1,10 +1,9 @@
-package controller;
+package controller.order;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import controller.customer.CustomerController;
 import controller.item.ItemController;
-import db.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -13,27 +12,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
-import model.CartTM;
-import model.Customer;
-import model.Item;
+import model.*;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
-import java.util.SimpleTimeZone;
 
-public class orderController implements Initializable {
+public class orderFormController implements Initializable {
 
     @FXML
     private JFXComboBox cmbCustomerID;
@@ -100,11 +95,28 @@ public class orderController implements Initializable {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
+        String orderId = txtOrderId.getText();
+        String date = lblDate.getText();
+        String cusId = cmbCustomerID.getValue().toString();
+        List<OrderDetails> orderDetailList = new ArrayList<>();
+
+        cartList.forEach(cartlist->{
+            orderDetailList.add(new OrderDetails(orderId,cartlist.getItemCode(),cartlist.getQtyOnHand(),cartlist.getUnitPrice()));
+        });
+
+        Order order = new Order(orderId, date, cusId, orderDetailList);
+     boolean b=new OrderController().placeOrder(order);
+     if (b){
+         new Alert(Alert.AlertType.INFORMATION,"Order Placed Successfully!!!").show();
+     }else{
+         new Alert(Alert.AlertType.ERROR,"Order Not Placed Successfully!!!").show();
+     }
+
 
     }
     private void setDateAndTime(){
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String format = dateFormat.format(date);
         lblDate.setText(format);
         /// --------------------------------------

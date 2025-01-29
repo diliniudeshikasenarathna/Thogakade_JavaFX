@@ -12,8 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="474.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.orderController">
+<AnchorPane prefHeight="474.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.order.orderFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a2c4b" height="88.0" stroke="BLACK" strokeType="INSIDE" width="646.0" />
       <Label alignment="CENTER" layoutX="193.0" layoutY="19.0" prefHeight="50.0" prefWidth="239.0" text="Order Form" textFill="#f2eded">
@@ -28,7 +27,7 @@
       <JFXTextField fx:id="txtDescription" disable="true" layoutX="128.0" layoutY="173.0" prefHeight="26.0" prefWidth="142.0" text="Description" />
       <JFXTextField fx:id="txtStock" disable="true" layoutX="281.0" layoutY="173.0" text="Stock" />
       <JFXTextField fx:id="txtUnitPrice" disable="true" layoutX="432.0" layoutY="173.0" prefHeight="26.0" prefWidth="142.0" text="Unit Price" />
-      <JFXTextField fx:id="txtQty" layoutX="431.0" layoutY="211.0" prefHeight="26.0" prefWidth="90.0" text="QTY" />
+      <JFXTextField fx:id="txtQty" layoutX="431.0" layoutY="211.0" prefHeight="26.0" prefWidth="90.0" promptText="QTY" />
       <JFXButton layoutX="542.0" layoutY="218.0" onAction="#btnAddToCarOnAction" stylesheets="@../css/Style.css" text="Add To Cart">
          <styleClass>
             <String fx:value="btn" />

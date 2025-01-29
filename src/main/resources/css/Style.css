@@ -7,6 +7,13 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+.button:hover{
+-fx-background-color :#07f7f7;
+
+}
+button:pressed{
+-fx-background-color:#239c9c
+}
 
 .btn2{
 -fx-background-color:  #00C000;
